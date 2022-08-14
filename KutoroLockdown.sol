@@ -34,7 +34,7 @@ contract KutoroLockdownSystem{
         } else if (choice == 4){
             authorized4 = authorizedAddress;
         } else {
-            revert("fart");
+            revert("Invalid Option");
         }
     }
 

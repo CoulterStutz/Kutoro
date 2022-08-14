@@ -24,6 +24,27 @@ contract KutoroLockdownSystem{
         return isCurrentlyLocked;
     }
 
+    function setAuthorized(uint choice, address authorizedAddress) public authorized returns (bool success) {
+        if (choice == 1) {
+            authorized1 = authorizedAddress;
+        } else if (choice == 2){
+            authorized2 = authorizedAddress;
+        } else if (choice == 3){
+            authorized3 = authorizedAddress;
+        } else if (choice == 4){
+            authorized4 = authorizedAddress;
+        } else {
+            revert("fart");
+        }
+    }
+
+    function setAllAuthorized(address address1, address address2, address address3, address address4) public authorized returns (bool success){
+        authorized1 = address1;
+        authorized2 = address2;
+        authorized3 = address3;
+        authorized4 = address4;
+    }
+
     modifier authorized{
         if(msg.sender == authorized1){
         } else if(msg.sender == authorized2){
